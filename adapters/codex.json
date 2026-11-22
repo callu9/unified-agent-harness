@@ -1,0 +1,10 @@
+{
+  "name": "codex",
+  "home": "~/.codex",
+  "global_file": "~/.codex/AGENTS.md",
+  "project_file": "AGENTS.md",
+  "hooks_file": "~/.codex/hooks.json",
+  "shell_matcher": "exec_command|shell|shell_command|Bash",
+  "legacy_hook_paths": ["~/.codex/hooks/turn-contract.py", "~/.codex/hooks/branch-name-guard.py", "~/.codex/hooks/commit-gate.py"],
+  "legacy_blocks": ["branch-name-guard"]
+}

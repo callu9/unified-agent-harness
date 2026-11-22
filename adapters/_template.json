@@ -1,0 +1,9 @@
+{
+  "name": "example-agent",
+  "home": "~/.example-agent",
+  "global_file": "~/.example-agent/GLOBAL.md",
+  "project_file": "EXAMPLE.md",
+  "project_pointer": null,
+  "hooks_file": null,
+  "shell_matcher": null
+}

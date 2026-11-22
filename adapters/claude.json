@@ -1,0 +1,12 @@
+{
+  "name": "claude",
+  "home": "~/.claude",
+  "global_file": "~/.claude/CLAUDE.md",
+  "project_file": "CLAUDE.md",
+  "project_pointer": "@AGENTS.md",
+  "hooks_file": "~/.claude/settings.json",
+  "shell_matcher": "Bash",
+  "settings": {"attribution": {"commit": "", "pr": ""}, "language": "korean", "env": {"CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5-5"}},
+  "legacy_hook_paths": ["~/.codex/hooks/turn-contract.py", "~/.codex/hooks/branch-name-guard.py", "~/.codex/hooks/commit-gate.py"],
+  "legacy_lines": ["@~/.codex/AGENTS.md"]
+}

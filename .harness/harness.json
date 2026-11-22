@@ -1,0 +1,6 @@
+{
+  "gate": true,
+  "commands": [
+    "pwsh -NoLogo -NoProfile -File ./scripts/check.ps1"
+  ]
+}

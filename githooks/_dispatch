@@ -1,0 +1,33 @@
+#!/bin/sh
+# Global core.hooksPath entry point. Every hook name here is a link to this file.
+# Runs the harness gate for pre-commit/commit-msg/pre-push, then chains to the repository's
+# own hook, because a global hooksPath otherwise hides .git/hooks entirely.
+name=$(basename "$0")
+here=$(cd "$(dirname "$0")" && pwd -P)
+py=/usr/bin/python3
+[ -x "$py" ] || py=python3
+own="$(git rev-parse --git-common-dir 2>/dev/null)/hooks/$name"
+
+case "$name" in
+  pre-commit)
+    "$py" -B "$here/../checks/git_gate.py" pre-commit || exit 1
+    ;;
+  commit-msg)
+    # The repository's own hook may rewrite the message, so it runs first and the gate sees the final file.
+    [ -x "$own" ] && { "$own" "$@" || exit $?; }
+    "$py" -B "$here/../checks/git_gate.py" commit-msg "$1" || exit 1
+    exit 0
+    ;;
+  pre-push)
+    # pre-push gets ref lines on stdin; keep a copy for the chained hook.
+    refs=$(mktemp) || exit 1
+    trap 'rm -f "$refs"' EXIT
+    cat > "$refs"
+    "$py" -B "$here/../checks/git_gate.py" pre-push "$@" < "$refs" || exit 1
+    [ -x "$own" ] && { "$own" "$@" < "$refs"; exit $?; }
+    exit 0
+    ;;
+esac
+
+[ -x "$own" ] && exec "$own" "$@"
+exit 0
