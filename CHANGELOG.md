@@ -4,6 +4,13 @@ All notable changes follow Semantic Versioning.
 
 > **Public snapshot.** This repository starts from the v3.4.0 tree of a private repository. The optional `codex-workflow` skill (a personal Orca orchestration flow) is not included, and the 3.3.x entries below are rewritten to describe only what ships here. Earlier entries are kept as written.
 
+## 3.5.0
+
+- Add `rules/35-tools.md`: keep work tools (agent CLIs and apps) on their latest version, never write a specific version as a requirement in guidance, issues, task specs or reports (a version appears only as evidence of what ran), ask the user to restart for updates that need it when no work is running and never restart on the agent's own, and, only when the user's guidance names a work browser profile, work in that profile alone and report a different connected profile instead of proceeding. This also restores the no-pinned-versions rule that the 3.3.0 entry described but `rules/` no longer contained.
+- Add `rules/45-documents.md`: work documents handed to the user follow the file-name format the user's own guidance defines (suffix placeholder `_v<version>_YYYYMMDD_<author>`); first version `v0.1`, the date is the creation day, a file holds only its own day's content and a later change is a new file copied from the latest with the next version and that day's date; code, repository files and scratch files are excluded.
+- `rules/25-analysis.md`: UI work that must match a design source is judged complete by a measured comparison of computed styles and positions, never by eye or a scaled-down screenshot; Figma links follow the `figma-fidelity` skill.
+- Add the optional `before-after-report` skill: a before-and-after HTML report with an overview, impact classification (affected, conditional, not affected, unconfirmed), issue cards (problem, why it matters, fix or direction), BEFORE/AFTER tables with the evidence environment, same-region crops with originals, separate technical status and verification status, open/closed detail cards, row-to-detail links and a pre-submission checklist, with an `assets/issue-card.html` markup example.
+
 ## 3.4.0
 
 - Add `rules/25-analysis.md`: find the wanted outcome and constraints first and ask only when unknowns change the result; check the premises, counterexamples and failure paths that decide a conclusion, separating checked facts from assumptions; plan multi-step work backwards from the completion condition.

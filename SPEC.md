@@ -1,4 +1,4 @@
-# agent-harness — Current Public Contract v3.4.0
+# agent-harness — Current Public Contract v3.5.0
 
 Prior contracts live in CHANGELOG.md and Git history (v2.0.1 and earlier: `codex-harness-core`).
 

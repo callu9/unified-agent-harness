@@ -2,7 +2,7 @@ BeforeAll { $repoRoot = Split-Path -Parent $PSScriptRoot }
 Describe 'optional Skills' {
     It 'retains only specialized procedures without a workspace stop rule' {
         $skills = Get-ChildItem "$repoRoot/skills" -Directory
-        @($skills.Name | Sort-Object) | Should -Be @('benchmark-approach', 'clarify-goal', 'compare-options', 'cross-repo-coordination', 'design-execution-routine', 'design-learning-plan', 'extract-actionable-insights', 'figma-fidelity', 'find-market-opportunities', 'frontend-polish', 'plan-from-outcome', 'stress-test-idea', 'understanding-debt')
+        @($skills.Name | Sort-Object) | Should -Be @('before-after-report', 'benchmark-approach', 'clarify-goal', 'compare-options', 'cross-repo-coordination', 'design-execution-routine', 'design-learning-plan', 'extract-actionable-insights', 'figma-fidelity', 'find-market-opportunities', 'frontend-polish', 'plan-from-outcome', 'stress-test-idea', 'understanding-debt')
         foreach ($skill in $skills) {
             $text = Get-Content (Join-Path $skill.FullName 'SKILL.md') -Raw
             $text | Should -Match ([regex]::Escape("name: $($skill.Name)"))
