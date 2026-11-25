@@ -1,4 +1,4 @@
-# agent-harness — Current Public Contract v3.4.0
+# agent-harness — Current Public Contract v3.5.0
 
 Prior contracts live in CHANGELOG.md and Git history (v2.0.1 and earlier: `codex-harness-core`).
 
@@ -14,6 +14,13 @@ independent of any one agent. `bin/harness apply` deploys it; nothing deploys on
 | Git hooks | `githooks/_dispatch` + one link per hook name (gates on pre-commit, commit-msg, pre-push) | global `core.hooksPath` |
 | Gate list | `checks/gates.py` | rendered guidance and turn contract |
 | Project enrollment | `.harness/harness.json` (`gate`, `commands`), optional `.harness/contract.md` | written by `harness enroll` in the project |
+
+### Rules and skills added in 3.5.0
+
+- `rules/35-tools.md`: keep work tools on their latest version and leave auto-update on; run the environment's update/version check at the start of work when one exists; never write a specific version as a requirement in guidance, issues, task specs or reports (a version is evidence of what ran only); ask the user to restart for updates that need it when no work is running; apply a work browser profile only when the user's guidance names one, otherwise the rule does not apply.
+- `rules/45-documents.md`: work documents handed to the user follow the user's own file-name format (the `_v<version>_YYYYMMDD_<author>` suffix is an example; only fields the format has are used). With a version/date field, the first version is `v0.1`, the date is the creation day, earlier-dated files are not edited, and a later change is a new file copied from the latest with the next version and date. Code, repository files and scratch files are excluded.
+- `rules/25-analysis.md`: UI work that must match a design source is judged complete by a measured comparison of computed styles and positions; measured with the platform's own means (computed styles and element boxes for web UI, layout/accessibility inspector values for native apps); Figma links follow the `figma-fidelity` skill, read from `~/.agent-harness/skills/figma-fidelity/SKILL.md` when it is not installed.
+- `skills/before-after-report/` (optional, not deployed by `apply`): before-and-after HTML report procedure using only evidence that exists (screens, API responses, logs or local reproductions; issue/PR/branch links when they exist).
 
 `~/.agent-harness` is a link to this checkout; every deployed command uses that path, so
 moving the checkout only needs the link updated.

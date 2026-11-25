@@ -2,7 +2,7 @@
 
 ## Purpose and map
 
-This repository is the single source for personal agent guidance and gates (v3.4.0).
+This repository is the single source for personal agent guidance and gates (v3.5.0).
 `bin/harness apply --write` deploys it to every agent with an adapter; nothing deploys on checkout.
 
 - rules/: agent-neutral global rules rendered into each agent's global instruction file.
